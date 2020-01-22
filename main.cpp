@@ -89,7 +89,7 @@ public:
     char* getType()
     {
         if(type == SAVINGS) return "Savings";
-        else if(type = CURRENT) return "Current";
+        else if(type == CURRENT) return "Current";
         else return "Unknown";
     }
 
