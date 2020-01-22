@@ -1,6 +1,5 @@
 #include <iostream>
 #include<fstream>
-#include<cctype>
 #include<iomanip>
 #include <stdlib.h>
 using namespace std;
