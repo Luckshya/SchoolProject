@@ -39,7 +39,13 @@ public:
     void Withdraw(int); //Withdraw Money.
     void ShowLists(); //Show all Account Holder and their details.
     void EditAccDetails(); //Input New Account details to Modify.
+    int RetBalance(); // To return Balance.
 };
+
+int Account::RetBalance()
+{
+    return Balance;
+}
 
 int Account::ReturnAccNo()
 {
@@ -261,14 +267,23 @@ void Withdraw_Amt(int GAccNo)
             cout<<"\n\n\SECTION: WITHDRAW AMOUNT ";
             cout<<"\n\nEnter The amount to withdraw: ";
             cin>>Amt;
-            Acc.Withdraw(Amt);
+                if(Amt<=Acc.RetBalance())
+                {
+                    Acc.Withdraw(Amt);
+                    int pos=(-1)*sizeof(Acc);
+                    AccFile.seekp(pos, ios::cur);
+                    AccFile.write((char*)&Acc, sizeof(Acc));
+                    cout<<"\n\nDone!. Amount Withdrawn. Please check your balance using Balance Enquiry.";
+                    cin.get();
+                }
+                else
+                {
+                    cout<<"Insufficient Balance"<<endl;
+                    cin.get();
+                }
+                RecordFound=true;
         }
-        int pos=(-1)*sizeof(Acc);
-        AccFile.seekp(pos, ios::cur);
-        AccFile.write((char*)&Acc, sizeof(Acc));
-        cout<<"\n\nDone!. Amount Withdrawn. Please check your balance using Balance Enquiry.";
-        cin.get();
-        RecordFound=true;
+
     }
     AccFile.close();
     if (RecordFound == false) cout<<"\n\n Sorry! No Record Found. Contact Admin. "<<endl;
@@ -385,3 +400,5 @@ void Menu()
 
 
 }
+
+
