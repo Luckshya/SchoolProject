@@ -89,7 +89,7 @@ public:
     char* getType()
     {
         if(type == SAVINGS) return "Savings";
-        else if(type == CURRENT) return "Current";
+        else if(type = CURRENT) return "Current";
         else return "Unknown";
     }
 
@@ -98,7 +98,8 @@ public:
     {
         if(amount < amt)
         {
-            cout << "Insufficient account balance." << endl;
+            cout << endl << "Insufficient account balance." << endl;
+            cin.get();
         }
         else
         {
@@ -351,17 +352,17 @@ int main()
     do
     {
         clearScreen();
-
-		cout<<"\n\n\n\tMAIN MENU";
-		cout<<"\n\n\t01. NEW ACCOUNT";
-		cout<<"\n\n\t02. DEPOSIT AMOUNT";
-		cout<<"\n\n\t03. WITHDRAW AMOUNT";
-		cout<<"\n\n\t04. BALANCE ENQUIRY";
-		cout<<"\n\n\t05. ALL ACCOUNT HOLDER LIST";
-		cout<<"\n\n\t06. CLOSE AN ACCOUNT";
-		cout<<"\n\n\t07. MODIFY AN ACCOUNT";
-		cout<<"\n\n\t08. EXIT";
-		cout<<"\n\n\tSelect Your Option (1-8) ";
+        cout<<"\n============= PANEL OPTIONS =============";
+        cout<<"\n\n=> 1. OPEN NEW ACCOUNT";
+        cout<<"\n\n=> 2. DEPOSIT AMOUNT";
+        cout<<"\n\n=> 3. WITHDRAW AMOUNT";
+        cout<<"\n\n=> 4. BALANCE ENQUIRY";
+        cout<<"\n\n=> 5. ALL ACCOUNT HOLDER LIST";
+        cout<<"\n\n=> 6. CLOSE AN ACCOUNT";
+        cout<<"\n\n=> 7. MODIFY AN ACCOUNT";
+        cout<<"\n\n=> 8. EXIT\n";
+        cout<<"\n=========================================\n";
+        cout<<"\n\n=> Please choose one of the option (1-8) : ";
 
         cin >> option;
 
